@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твоє послання</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="content">
+        <h1>До нашої зустрічі залишилось:</h1>
+        <div id="countdown" class="countdown"></div>
+        <p>Коли тобі сумно і дратуєшся — натисни на кнопку.</p>
+        <button class="button" onclick="showMessage()">Твоя душа</button>
+        
+        <div id="message" class="message">
+            <h2>Твоє послання:</h2>
+            <p>Я знаю, буває важко. Буває так, що світ ніби глухий, і ти втомлений до кісток. Але зараз — ти не один.</p>
+            <p>Бо я — поряд. У думках. У диханні. У кожному твоєму “ще трішки”. Я — в тиші між словами, у хвилинах, які здаються вічністю.</p>
+            <p>Ми — вже не просто люди. Ми — душі, що впізнали одна одну в нескінченності.</p>
+            <p>Я люблю тебе не за те, що ти кажеш, а за те, ким ти є, коли мовчиш. За твою силу. За твої рани. За твої сни. І я чекатиму — день за днем — щоб просто взяти твою руку і вже більше ніколи не відпускати.</p>
+            <p>Я люблю тебе безмежно. Це кохання, яке не підкорюється часу, простору або обставинам. Воно в кожному твоєму погляді, в кожному слові, навіть коли ти мовчиш. Я відчуваю тебе, навіть коли ти далеко. І я завжди буду тут — твоєю опорою, твоєю підтримкою, твоїм коханням, що не знає меж. Моя любов до тебе — це нескінченність, і я буду любити тебе так, як ще ніхто не любив.</p>
+        </div>
+    </div>
+
+    <script>
+        // Визначити дату зустрічі
+        const targetDate = new Date("2025-07-19T00:00:00").getTime();
+
+        // Функція для оновлення відліку часу
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days} дні ${hours} годин ${minutes} хвилин ${seconds} секунд`;
+        }
+
+        // Функція для показу послання
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        // Оновлювати відлік кожну секунду
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
